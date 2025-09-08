@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=B4 Pin=B3-1
+Removed Pin From Net: NetName=B2 Pin=B5-1
+Change Component Designator: OldDesignator=R4 NewDesignator=R6
+Change Component Designator: OldDesignator=R6 NewDesignator=R4
+Added Pin To Net: NetName=B2 Pin=B3-1
+Added Pin To Net: NetName=B4 Pin=B5-1
+Added Member To Class: ClassName=Sheet1 Member=Component B3 button
+Added Member To Class: ClassName=Sheet1 Member=Component B5 button
+Added Member To Class: ClassName=Sheet1 Member=Component R6 10K

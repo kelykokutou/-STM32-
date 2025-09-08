@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=B3 NewDesignator=B5
+Change Component Designator: OldDesignator=B5 NewDesignator=B3
+Added Member To Class: ClassName=Sheet1 Member=Component B5 button

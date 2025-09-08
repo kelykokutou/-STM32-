@@ -1,0 +1,70 @@
+#include "I2C.h"
+
+unsigned int t = 2;
+
+//延时
+void IIC_delay(void) {
+	t = 2;
+	while (t--);
+}
+
+//起始信号
+void I2C_Start(void) {
+	set_SDA;
+	set_SCL;
+	IIC_delay();
+	reset_SDA;
+	IIC_delay();
+	reset_SCL;
+	IIC_delay();
+}
+
+//结束信号
+void I2C_Stop(void) {
+	reset_SDA;
+	set_SCL;
+	IIC_delay();
+	set_SDA;
+}
+
+//等待信号响应
+void I2C_WaitAck(void) //测数据信号的电平
+{
+	set_SDA;
+	IIC_delay();
+	set_SCL;
+	IIC_delay();
+	reset_SCL;
+	IIC_delay();
+}
+
+//写入一个字节
+void I2C_Send_Byte(unsigned char dat) {
+	unsigned char i;
+	for (i = 0;i < 8;i++) {
+		if (dat & 0x80)
+			set_SDA;
+		else
+			reset_SDA;
+		IIC_delay();
+		set_SCL;
+		IIC_delay();
+		reset_SCL;//将时钟信号设置为低电平
+		dat <<= 1;
+	}
+}
+
+unsigned char I2C_Read_Byte() {
+	unsigned char i, dat;
+	set_SDA;
+	for (i = 0;i < 8;i++) {
+		set_SCL;
+		IIC_delay();
+		if (read_SDA != 0)
+			dat += 1;
+		reset_SCL;
+		IIC_delay();
+		dat <<= 1;
+	}
+	return dat;
+}

@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=VCC Pin=R11-1
+Removed Pin From Net: NetName=IIC_SCL Pin=R11-2
+Removed Pin From Net: NetName=VCC Pin=R12-1
+Removed Pin From Net: NetName=IIC_SDA Pin=R12-2
+Removed Member From Class: ClassName=Sheet1 Member=R11
+Removed Member From Class: ClassName=Sheet1 Member=R12

@@ -1,0 +1,14 @@
+#ifndef __I2C_H
+#define __I2C_H
+
+#include "main.h"
+
+void IIC_delay(void);
+void I2C_Start(void);
+void I2C_Stop(void);
+void I2C_WaitAck(void);
+void I2C_Send_Byte(unsigned char dat);
+unsigned char I2C_Read_Byte(void);
+
+#endif
+

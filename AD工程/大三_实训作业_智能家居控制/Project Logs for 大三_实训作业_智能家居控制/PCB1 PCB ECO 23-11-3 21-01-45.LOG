@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=+5V Pin=U4-8
+Added Pin To Net: NetName=+5 Pin=U4-8
+Added Pin To Net: NetName=SWDIO Pin=U5-34
+Added Pin To Net: NetName=SWDCLK Pin=U5-37

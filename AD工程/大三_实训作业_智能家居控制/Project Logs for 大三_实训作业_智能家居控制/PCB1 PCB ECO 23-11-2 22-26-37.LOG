@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=Light_IN Pin=P?-1
+Removed Pin From Net: NetName=Light_OUT Pin=P?-2
+Added Pin To Net: NetName=Light_OUT Pin=P?-1
+Added Pin To Net: NetName=Light_IN Pin=P?-2

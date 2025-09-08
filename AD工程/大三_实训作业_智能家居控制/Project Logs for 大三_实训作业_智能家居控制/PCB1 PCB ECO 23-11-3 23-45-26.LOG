@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=L293_IN4 Pin=U5-26
+Added Pin To Net: NetName=L293_IN3 Pin=U5-27
+Added Pin To Net: NetName=L293_EN_34 Pin=U5-28

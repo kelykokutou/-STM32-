@@ -1,0 +1,30 @@
+Added Pin To Net: NetName=B1 Pin=B2-1
+Added Pin To Net: NetName=GND Pin=B2-2
+Added Pin To Net: NetName=B2 Pin=B3-1
+Added Pin To Net: NetName=GND Pin=B3-2
+Added Pin To Net: NetName=B3 Pin=B4-1
+Added Pin To Net: NetName=GND Pin=B4-2
+Added Pin To Net: NetName=B4 Pin=B5-1
+Added Pin To Net: NetName=GND Pin=B5-2
+Added Pin To Net: NetName=B5 Pin=B6-1
+Added Pin To Net: NetName=GND Pin=B6-2
+Added Pin To Net: NetName=VCC Pin=R3-1
+Added Pin To Net: NetName=B1 Pin=R3-2
+Added Pin To Net: NetName=VCC Pin=R4-1
+Added Pin To Net: NetName=B2 Pin=R4-2
+Added Pin To Net: NetName=VCC Pin=R5-1
+Added Pin To Net: NetName=B3 Pin=R5-2
+Added Pin To Net: NetName=VCC Pin=R6-1
+Added Pin To Net: NetName=B4 Pin=R6-2
+Added Pin To Net: NetName=VCC Pin=R7-1
+Added Pin To Net: NetName=B5 Pin=R7-2
+Added Member To Class: ClassName=Sheet1 Member=Component B2 button
+Added Member To Class: ClassName=Sheet1 Member=Component B3 button
+Added Member To Class: ClassName=Sheet1 Member=Component B4 button
+Added Member To Class: ClassName=Sheet1 Member=Component B5 button
+Added Member To Class: ClassName=Sheet1 Member=Component B6 button
+Added Member To Class: ClassName=Sheet1 Member=Component R3 10K
+Added Member To Class: ClassName=Sheet1 Member=Component R4 10K
+Added Member To Class: ClassName=Sheet1 Member=Component R5 10K
+Added Member To Class: ClassName=Sheet1 Member=Component R6 10K
+Added Member To Class: ClassName=Sheet1 Member=Component R7 10K

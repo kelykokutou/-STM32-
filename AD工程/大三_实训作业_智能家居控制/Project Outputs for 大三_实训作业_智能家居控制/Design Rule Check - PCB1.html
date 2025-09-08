@@ -1,0 +1,381 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\soft\AD20\doc\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">23/11/7</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">14:39:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc" class="file"><acronym title="D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc">D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">2</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">9</td></tr>
+</table>
+</td>
+</table><a name="IDBHMB01JG11OKFKAV2ZL3GU5Y5ID0P5HAWTH54ZKDAMH5JP11GEGB"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID25BWCBVRVIHNNGOFFMSJ1APNHMSL1EKPSXZCGOMHAIB4NL3FN23I">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</a></td>
+<td class="column2">2</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">2</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDG2YZINXLMAVAOZJBW1QGG0DUUHOEEUIOYZ4WBALN0PNBDWUYY3YF">Clearance Constraint (Gap=0.102mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID13X4DHX2PQJ1K3C3DFCQFCGWRGKM5VXIASDFKEFRXCYWPGGX1PG">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIBX3UNBV5QIJOQNS5J5FDOBTIECA1BQJDS2F4NSZP5RYA3AOYUO">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID45XLF02YCPVZPOSKWR0MOGXQADF5OB0TBKTL4MLUADAATDJWTBVD">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEQUAFFTTOL5HBMR3NLWXPAM15IHEN3HB34D3GCJXJBM3BIQ3AVUB">Width Constraint (Min=0.102mm) (Max=10mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCFUZZDXDTMVLKONXYIH00AMANE4NQOHWOTLQOIETLCSNTFYSG">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDECQSVGTO5WBEEAX4TG5HDPOXHC5H3N0PN3SLSDM1AEKB3I1FMTQC">Hole Size Constraint (Min=0.3mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNDVK3HY2DTTIB2XCHV1HIW3RPL5KVEYW2Z11NQEJXLD0K2DQICC">Hole To Hole Clearance (Gap=0.3mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID34G0MRAOBGAJIN3KPJZDZ5NJ3GQF4204C3MDH2PJ1I4ETIU2C25J">Minimum Solder Mask Sliver (Gap=0.102mm) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDM0OTSWZXHKVNCNSCA0YLLHBRHJKS3UM04GPDTROHA2R3FWDKIUAF">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSYSY2OMANGR4OGBZ5LNGA0U43HJSPAFAFOMYBRKVBDRH20KBV0DK">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOKCCR0DKVT0NHI2QCCWBOWYLJCWESLSMHU3LBAPCY4XWA4MVQOMF">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRYODV2NLJTPCURWLWAJAORZDEZLHVCFIHZL4SBYIKIJ2JGP0JVI">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">9</td>
+</tr>
+</table><br><a name="IDSKKRUXJ4RTFCMNOLYJRTCQVXKCFCXESP4IJL4BDKYVD2PEZ5FUUC"><h2>Warnings</h2></a><a name="ID25BWCBVRVIHNNGOFFMSJ1APNHMSL1EKPSXZCGOMHAIB4NL3FN23I"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: GND_L02_P004 In net GND On Bottom Layer</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Polygon named: GND_L01_P002 In net GND On Top Layer</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDIBX3UNBV5QIJOQNS5J5FDOBTIECA1BQJDS2F4NSZP5RYA3AOYUO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1742.693mil|Location2.X=1930.93mil|Location1.Y=1786.709mil|Location2.Y=1939.236mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1742.693mil|Location2.X=1930.93mil|Location1.Y=1786.709mil|Location2.Y=1939.236mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C2-1(44.831mm,48.665mm) on Top Layer And Pad C9-1(48.479mm,45.974mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID45XLF02YCPVZPOSKWR0MOGXQADF5OB0TBKTL4MLUADAATDJWTBVD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Modified Polygon (Allow modified: No), (Allow shelved: No)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1250mil|Location2.X=4635.827mil|Location1.Y=917.992mil|Location2.Y=2925.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1250mil|Location2.X=4635.827mil|Location1.Y=917.992mil|Location2.Y=2925.866mil|Absolute=True">Modified Polygon: Polygon Not Repour After Edit  (GND_L01_P002) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1250mil|Location2.X=4635.996mil|Location1.Y=1647mil|Location2.Y=2925.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1250mil|Location2.X=4635.996mil|Location1.Y=1647mil|Location2.Y=2925.866mil|Absolute=True">Modified Polygon: Polygon Not Repour After Edit  (GND_L02_P004) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID34G0MRAOBGAJIN3KPJZDZ5NJ3GQF4204C3MDH2PJ1I4ETIU2C25J"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.102mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3255.363mil|Location2.X=3260.613mil|Location1.Y=2332.532mil|Location2.Y=2337.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3255.363mil|Location2.X=3260.613mil|Location1.Y=2332.532mil|Location2.Y=2337.782mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.102mm) Between Pad U3-1(83.107mm,59.063mm) on Top Layer And Pad U3-2(83.107mm,59.563mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3255.363mil|Location2.X=3260.613mil|Location1.Y=2352.218mil|Location2.Y=2357.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3255.363mil|Location2.X=3260.613mil|Location1.Y=2352.218mil|Location2.Y=2357.468mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.102mm) Between Pad U3-2(83.107mm,59.563mm) on Top Layer And Pad U3-3(83.107mm,60.063mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.505mil|Location2.X=3126.755mil|Location1.Y=2352.218mil|Location2.Y=2357.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.505mil|Location2.X=3126.755mil|Location1.Y=2352.218mil|Location2.Y=2357.468mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.102mm) Between Pad U3-4(79.707mm,60.063mm) on Top Layer And Pad U3-5(79.707mm,59.563mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.505mil|Location2.X=3126.755mil|Location1.Y=2332.532mil|Location2.Y=2337.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.505mil|Location2.X=3126.755mil|Location1.Y=2332.532mil|Location2.Y=2337.782mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.102mm) Between Pad U3-5(79.707mm,59.563mm) on Top Layer And Pad U3-6(79.707mm,59.063mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDSYSY2OMANGR4OGBZ5LNGA0U43HJSPAFAFOMYBRKVBDRH20KBV0DK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.993mil|Location2.X=4566.243mil|Location1.Y=1342.435mil|Location2.Y=1353.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.993mil|Location2.X=4566.243mil|Location1.Y=1342.435mil|Location2.Y=1353.685mil|Absolute=True">Silk To Silk Clearance Constraint: (0.205mm &lt; 0.254mm) Between Text "L-IN" (117.369mm,34.241mm) on Top Overlay And Track (115.61mm,25.205mm)(115.61mm,40.205mm) on Top Overlay Silk Text to Silk Clearance [0.205mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\file\AD%E5%B7%A5%E7%A8%8B\%E5%A4%A7%E4%B8%89_%E5%AE%9E%E8%AE%AD%E4%BD%9C%E4%B8%9A_%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E6%8E%A7%E5%88%B6\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.993mil|Location2.X=4566.243mil|Location1.Y=1012.589mil|Location2.Y=1023.839mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\file\AD工程\大三_实训作业_智能家居控制\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.993mil|Location2.X=4566.243mil|Location1.Y=1012.589mil|Location2.Y=1023.839mil|Absolute=True">Silk To Silk Clearance Constraint: (0.205mm &lt; 0.254mm) Between Text "L-OUT" (117.369mm,25.863mm) on Top Overlay And Track (115.61mm,25.205mm)(115.61mm,40.205mm) on Top Overlay Silk Text to Silk Clearance [0.205mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
